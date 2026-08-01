@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#000;
+overflow:hidden;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+h1{
+color:#fff;
+font-size:clamp(2rem,6vw,4rem);
+opacity:0;
+animation:show 2s forwards;
+text-shadow:0 0 20px rgba(255,80,80,.5);
+z-index:2;
+}
+
+span{
+color:#ff4d6d;
+}
+
+.heart{
+position:absolute;
+bottom:-30px;
+color:#ff4d6d;
+font-size:20px;
+animation:float linear forwards;
+opacity:.7;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:scale(.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes float{
+from{
+transform:translateY(0);
+opacity:.7;
+}
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<h1>You are very <span>beautiful</span> ❤️</h1>
+
+<script>
+setInterval(()=>{
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+heart.style.animationDuration=(4+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),7000);
+
+},300);
+</script>
+
+</body>
+</html>
